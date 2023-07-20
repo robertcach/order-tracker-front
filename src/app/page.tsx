@@ -1,4 +1,4 @@
-import { useGetOrders } from "./hooks/useGetOrders";
+import { useGetOrders } from "@/hooks/useGetOrders";
 
 export default async function Home() {
   const orders = await useGetOrders();
