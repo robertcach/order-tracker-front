@@ -10,13 +10,13 @@ export interface Customer {
   name: string;
   email: string;
   address: string;
-  order: Order[];
+  orders: string[];
 }
 
 export interface Order {
   name: string;
   customer: Customer;
-  products: Product[];
+  products: string[];
   total: number;
   status: string;
 }
