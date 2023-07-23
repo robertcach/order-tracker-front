@@ -1,10 +1,26 @@
-import { useGetCustomer } from "@/hooks/useGetCustomer";
-import { Customer } from "@/interfaces";
+"use client";
 
-export default async function Customer({ params }: any) {
+import { APP_LOCAL_ENDPOINT } from "@/constans";
+import { Customer } from "@/interfaces";
+import { useEffect, useState } from "react";
+
+export default function Customer({ params }: any) {
+  const [customer, setCustomer] = useState<Customer | undefined>(undefined);
   const { id } = params;
 
-  const customer: Customer = await useGetCustomer(id);
+  useEffect(() => {
+    if (id) {
+      fetch(`${APP_LOCAL_ENDPOINT}/customer/${id}`)
+        .then((res) => res.json())
+        .then((response) => setCustomer(response));
+    }
+  }, [id]);
 
-  return <p>{customer.email}</p>;
+  return (
+    <>
+      {customer?.orders.map((order) => (
+        <p>{order}</p>
+      ))}
+    </>
+  );
 }
