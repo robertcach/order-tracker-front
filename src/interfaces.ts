@@ -15,7 +15,7 @@ export interface Customer {
 
 export interface Order {
   name: string;
-  customer: Customer;
+  customer: string;
   products: string[];
   total: number;
   status: string;
