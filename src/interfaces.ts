@@ -20,3 +20,8 @@ export interface Order {
   total: number;
   status: string;
 }
+
+export interface NavLink {
+  label: string;
+  route: string;
+}
