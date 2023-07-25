@@ -6,18 +6,20 @@ export default async function Home() {
 
   return (
     <main className="flex flex-col items-center justify-between h-full p-24 bg-slate-100">
-      <table className="w-full bg-white rounded-sm table-auto">
-        <thead>
-          <tr className="text-left ">
-            <th>Status</th>
-            <th>Customer</th>
+      <table className="w-full p-10 text-left bg-white border-collapse rounded-sm table-auto">
+        <thead className="bg-secondary">
+          <tr>
+            <th className="px-10 py-6">Status</th>
+            <th className="px-10 py-6">Customer</th>
+            <th className="px-10 py-6">Action</th>
           </tr>
         </thead>
         <tbody>
           {orders.map((order) => (
-            <tr className="text-left">
-              <td>{order.status}</td>
-              <td>{order.customer}</td>
+            <tr className="border-b border-b-gray">
+              <td className="px-10 py-6">{order.status}</td>
+              <td className="px-10 py-6">{order.customer}</td>
+              <td className="px-10 py-6">Edit</td>
             </tr>
           ))}
         </tbody>
