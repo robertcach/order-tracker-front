@@ -1,3 +1,4 @@
+import Pagination from "@/components/pagination";
 import { useGetOrders } from "@/hooks/useGetOrders";
 import { Order } from "@/interfaces";
 
@@ -25,6 +26,7 @@ export default async function Home() {
           <p>Total delivered orders</p>
         </div>
       </section>
+      <Pagination totalOrders={orders.length} />
       <table className="w-full p-10 text-left bg-white border-collapse rounded-sm table-auto">
         <thead className="bg-secondary">
           <tr>
