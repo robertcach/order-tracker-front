@@ -1,25 +1,14 @@
-"use client";
-
-import { APP_LOCAL_ENDPOINT } from "@/constans";
+import { useGetCustomer } from "@/hooks/useGetCustomer";
 import { Customer } from "@/interfaces";
-import { useEffect, useState } from "react";
 
-export default function Customer({ params }: any) {
-  const [customer, setCustomer] = useState<Customer | undefined>(undefined);
+export default async function Customer({ params }: any) {
   const { id } = params;
-
-  useEffect(() => {
-    if (id) {
-      fetch(`${APP_LOCAL_ENDPOINT}/customer/${id}`)
-        .then((res) => res.json())
-        .then((response) => setCustomer(response));
-    }
-  }, [id]);
+  const customer: Customer = await useGetCustomer(id);
 
   return (
     <>
       {customer?.orders.map((order) => (
-        <p>{order}</p>
+        <p>{order.total}</p>
       ))}
     </>
   );

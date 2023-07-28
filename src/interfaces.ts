@@ -10,7 +10,7 @@ export interface Customer {
   name: string;
   email: string;
   address: string;
-  orders: string[];
+  orders: Order[];
 }
 
 export interface Order {
