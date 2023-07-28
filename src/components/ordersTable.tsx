@@ -1,4 +1,29 @@
-export default function OrdersTable() {
+import { useGetCustomer } from "@/hooks/useGetCustomer";
+import { useGetOrders } from "@/hooks/useGetOrders";
+import { Customer, Order } from "@/interfaces";
+
+const getOrdersNames = async () => {
+  const orders: Order[] = await useGetOrders();
+
+  const ordersResult = await Promise.all(
+    orders.map(async (order) => {
+      const customerData: Customer = await useGetCustomer(
+        order.customer as string
+      );
+
+      return {
+        ...order,
+        customer: customerData,
+      };
+    })
+  );
+
+  return ordersResult;
+};
+
+export default async function OrdersTable() {
+  const ordersResult = await getOrdersNames();
+
   return (
     <table className="w-full p-10 text-left bg-white border-collapse rounded-sm table-auto">
       <thead className="bg-secondary">
@@ -9,13 +34,15 @@ export default function OrdersTable() {
         </tr>
       </thead>
       <tbody>
-        {/* {orders.map((order) => (
+        {ordersResult.map((order) => {
+          return (
             <tr className="border-b border-b-gray">
               <td className="px-10 py-6">{order.status}</td>
-              <td className="px-10 py-6">{order.customer}</td>
+              <td className="px-10 py-6">{order.customer.name}</td>
               <td className="px-10 py-6">Edit</td>
             </tr>
-          ))} */}
+          );
+        })}
       </tbody>
     </table>
   );
