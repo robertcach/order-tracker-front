@@ -1,7 +1,5 @@
 "use client";
 import { Order } from "@/interfaces";
-import OrdersTable from "./ordersTable";
-import { useState } from "react";
 
 interface PaginationProps {
   orders: Order[];
@@ -24,8 +22,6 @@ export default function Pagination({ orders }: PaginationProps) {
           </button>
         ))}
       </div>
-
-      <OrdersTable />
     </>
   );
 }
