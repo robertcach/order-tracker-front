@@ -12,18 +12,32 @@ export default function OrdersStatus({ orders }: OrdersStatusProps) {
 
   return (
     <section className="flex items-start w-full gap-5">
-      <div className="flex flex-col items-start px-6 py-4 bg-white rounded-md shadow w-60">
-        <p>{orders.length}</p>
-        <p>Total orders</p>
-      </div>
-      <div className="flex flex-col items-start px-6 py-4 bg-white rounded-sm shadow w-60">
-        <p>{pendingOrders.length}</p>
-        <p>Total pending orders</p>
-      </div>
-      <div className="flex flex-col items-start px-6 py-4 bg-white rounded-sm shadow w-60">
-        <p>{deliveredOrders.length}</p>
-        <p>Total delivered orders</p>
-      </div>
+      <ul className="flex gap-4">
+        <li>
+          <p>
+            All{" "}
+            <span className="px-3 text-xs text-white rounded-lg  bg-secondary">
+              {orders.length}
+            </span>
+          </p>
+        </li>
+        <li>
+          <p>
+            Pending{" "}
+            <span className="px-3 text-xs text-white bg-yellow-400 rounded-lg">
+              {pendingOrders.length}
+            </span>
+          </p>
+        </li>
+        <li>
+          <p>
+            Delivered{" "}
+            <span className="px-3 text-xs text-white bg-green-600 rounded-lg">
+              {deliveredOrders.length}
+            </span>
+          </p>{" "}
+        </li>
+      </ul>
     </section>
   );
 }
