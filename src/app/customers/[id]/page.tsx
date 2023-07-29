@@ -7,6 +7,7 @@ export default async function Customer({ params }: any) {
 
   return (
     <>
+      <p>{customer.name}</p>
       {customer?.orders.map((order) => (
         <p>{order.total}</p>
       ))}

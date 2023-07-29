@@ -7,9 +7,9 @@ export default async function Order({ params }: any) {
 
   return (
     <>
-      <p>{order.customerData[0].name}</p>
+      <p>{order.customer[0].name}</p>
       <p>{order.total}</p>
-      {order.productsData.map((product) => (
+      {order.products.map((product) => (
         <p>{product.title}</p>
       ))}
     </>
