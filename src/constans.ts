@@ -12,8 +12,4 @@ export const NAV_LINKS: NavLink[] = [
     label: "Customers",
     route: "/customers",
   },
-  {
-    label: "Orders",
-    route: "/orders",
-  },
 ];
