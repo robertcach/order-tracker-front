@@ -15,9 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="grid items-start h-screen grid-cols-12">
+      <body className="grid items-start h-full grid-cols-12">
         <NavBar />
-        <div className="h-screen col-span-10">{children}</div>
+        <div className="h-full col-span-10">{children}</div>
       </body>
     </html>
   );
