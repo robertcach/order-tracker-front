@@ -1,5 +1,5 @@
 export interface Product {
-  name: string;
+  title: string;
   price: number;
   image: string;
   description: string;
@@ -18,7 +18,8 @@ export interface Order {
   name: string;
   customerID: string;
   customerData: Customer[];
-  products: string[] | Product[];
+  products: string[];
+  productsData: Product[];
   total: number;
   status: string;
 }
