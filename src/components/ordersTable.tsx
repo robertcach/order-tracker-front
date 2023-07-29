@@ -1,6 +1,7 @@
 import { useGetCustomer } from "@/hooks/useGetCustomer";
 import { useGetOrders } from "@/hooks/useGetOrders";
 import { Customer, Order } from "@/interfaces";
+import Link from "next/link";
 
 const getOrdersNames = async () => {
   const orders: Order[] = await useGetOrders();
@@ -39,7 +40,9 @@ export default async function OrdersTable() {
             <tr className="border-b border-b-gray">
               <td className="px-10 py-6">{order.status}</td>
               <td className="px-10 py-6">{order.customer.name}</td>
-              <td className="px-10 py-6">Edit</td>
+              <td className="px-10 py-6">
+                <Link href={`/orders/${order.id}`}>Edit</Link>
+              </td>
             </tr>
           );
         })}
