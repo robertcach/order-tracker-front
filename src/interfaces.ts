@@ -29,3 +29,10 @@ export interface NavLink {
   label: string;
   route: string;
 }
+
+export interface NewOrderBody {
+  customerID: string;
+  productsID: string[];
+  status: string;
+  total: number;
+}
