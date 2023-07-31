@@ -1,11 +1,12 @@
 import { APP_LOCAL_ENDPOINT } from "@/constans";
+import { NewOrderBody } from "@/interfaces";
 
-export function useCreateOrder(data: any) {
-  const customerID = data.get("customerID");
-  const status = data.get("status");
-  const productsID = JSON.parse(data.get("productsID"));
-  const total = data.get("total");
-
+export function useCreateOrder({
+  customerID,
+  productsID,
+  status,
+  total,
+}: NewOrderBody) {
   const opcionesFetch = {
     method: "POST",
     headers: {
