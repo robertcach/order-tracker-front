@@ -1,5 +1,6 @@
 import { Order } from "@/interfaces";
 import OrderProductCard from "./orderProductCard";
+import Link from "next/link";
 
 interface OrderDetailsProps {
   order: Order;
@@ -31,6 +32,7 @@ export default function OrderDetails({ order }: OrderDetailsProps) {
         <p>{customer.email}</p>
         <p>{customer.address}</p>
       </div>
+      <Link href={`/orders/${order.id}/edit`}>Edit</Link>
     </div>
   );
 }
