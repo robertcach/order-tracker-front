@@ -2,7 +2,8 @@
 
 import { CUSTOMERS_LIST, PRODUCTS_LIST } from "@/constans";
 import { useGetOrder } from "@/hooks/useGetOrder";
-import { Order } from "@/interfaces";
+import { useUpdateOrder } from "@/hooks/useUpdateOrder";
+import { OrderBody, Order } from "@/interfaces";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { Fragment, useEffect, useState } from "react";
@@ -36,7 +37,20 @@ export default function EditOrder({ params }: any) {
   }, []);
 
   const onSubmit = (data: any) => {
-    console.log(data);
+    const { customerID } = data;
+    const selectedProductIDs = selectedProducts.map((product) => product.id);
+    const totalPrice = selectedProducts.reduce((acc, current) => {
+      return acc + current.price;
+    }, 0);
+
+    const updatedOrder: OrderBody = {
+      customerID,
+      total: totalPrice,
+      productsID: selectedProductIDs,
+      status: "Delivered",
+    };
+
+    useUpdateOrder(updatedOrder, id as string);
   };
 
   return (
