@@ -30,7 +30,7 @@ export interface NavLink {
   route: string;
 }
 
-export interface NewOrderBody {
+export interface OrderBody {
   customerID: string;
   productsID: string[];
   status: string;

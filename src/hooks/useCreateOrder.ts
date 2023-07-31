@@ -1,12 +1,12 @@
 import { APP_LOCAL_ENDPOINT } from "@/constans";
-import { NewOrderBody } from "@/interfaces";
+import { OrderBody } from "@/interfaces";
 
 export function useCreateOrder({
   customerID,
   productsID,
   status,
   total,
-}: NewOrderBody) {
+}: OrderBody) {
   const opcionesFetch = {
     method: "POST",
     headers: {

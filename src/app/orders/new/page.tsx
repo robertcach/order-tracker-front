@@ -1,7 +1,7 @@
 "use client";
 import { CUSTOMERS_LIST, PRODUCTS_LIST } from "@/constans";
 import { useCreateOrder } from "@/hooks/useCreateOrder";
-import { NewOrderBody } from "@/interfaces";
+import { OrderBody } from "@/interfaces";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { Fragment, useState } from "react";
@@ -19,7 +19,7 @@ export default function NewOrder() {
       return acc + current.price;
     }, 0);
 
-    const newOrder: NewOrderBody = {
+    const newOrder: OrderBody = {
       customerID,
       total: totalPrice,
       productsID: selectedProductIDs,
