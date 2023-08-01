@@ -4,6 +4,10 @@ import { Order } from "@/interfaces";
 import OrderProductCard from "./orderProductCard";
 import Link from "next/link";
 import { useState } from "react";
+import {
+  ArrowSmallDownIcon,
+  ArrowSmallUpIcon,
+} from "@heroicons/react/20/solid";
 
 interface OrderCardProps {
   order: Order;
@@ -14,10 +18,13 @@ export default function OrderCard({ order }: OrderCardProps) {
   const isMoreThanOneProduct = order.products.length > 1;
 
   return (
-    <article className="p-6 bg-white rounded-md">
+    <article className="grid gap-2 p-6 bg-white rounded-md">
       <div className="flex justify-between">
-        <p>Order {`#${order.id.slice(0, 7)}`}...</p>
-        <p>{order.total}€</p>
+        <p className="text-lg font-bold">
+          <span className="text-gray-600">Order</span>{" "}
+          {`#${order.id.slice(0, 7)}`}...
+        </p>
+        <p className="text-2xl font-semibold">{order.total}€</p>
       </div>
       <div className="flex justify-between">
         <p>{order.status}</p>
@@ -46,9 +53,17 @@ export default function OrderCard({ order }: OrderCardProps) {
             onClick={() => setViewMoreProduct(!viewMoreProduct)}
             className="text-left"
           >
-            {viewMoreProduct
-              ? "Show less products"
-              : `Show more ${order.products.length - 1} items`}
+            {viewMoreProduct ? (
+              <div className="flex items-center">
+                <ArrowSmallUpIcon className="w-5 h-5" aria-hidden="true" />
+                <p>Show less products</p>
+              </div>
+            ) : (
+              <div className="flex items-center">
+                <ArrowSmallDownIcon className="w-5 h-5" aria-hidden="true" />
+                <p>Show more {order.products.length - 1} items</p>
+              </div>
+            )}
           </button>
         )}
       </div>

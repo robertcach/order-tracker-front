@@ -20,8 +20,8 @@ export default function OrderProductCard({
         className="rounded-md"
       />
       <div>
-        <p>{product.title}</p>
-        <p>{product.price}</p>
+        <p className="text-lg font-semibold">{product.title}</p>
+        <p>{product.price}€</p>
       </div>
       {showPrice && <p className="ml-auto">{product.price}€</p>}
     </div>
