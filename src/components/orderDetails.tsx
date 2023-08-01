@@ -10,7 +10,7 @@ export default function OrderDetails({ order }: OrderDetailsProps) {
   const customer = { ...order.customer[0] };
 
   return (
-    <div className="flex flex-col h-screen gap-5 p-12 bg-slate-100">
+    <div className="flex flex-col h-screen gap-5 p-24 bg-slate-100">
       <div className="flex flex-col gap-5">
         <div className="p-6 bg-white rounded-md">
           <p>Order details</p>
