@@ -23,7 +23,9 @@ export default function OrderProductCard({
         <p className="text-lg font-semibold">{product.title}</p>
         <p>{product.price}€</p>
       </div>
-      {showPrice && <p className="ml-auto">{product.price}€</p>}
+      {showPrice && (
+        <p className="ml-auto text-xl font-semibold">{product.price}€</p>
+      )}
     </div>
   );
 }
