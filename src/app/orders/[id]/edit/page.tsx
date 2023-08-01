@@ -14,7 +14,7 @@ interface ProductID {
   name: string;
   price: number;
 }
-export default function EditOrder({ params }: any) {
+export default function EditOrder({ params }: { params: { id: string } }) {
   const [selectedProducts, setSelectedProducts] = useState<ProductID[]>([]);
   const { register, handleSubmit, reset } = useForm();
   const { id } = params;
@@ -50,7 +50,7 @@ export default function EditOrder({ params }: any) {
       status: "Delivered",
     };
 
-    useUpdateOrder(updatedOrder, id as string);
+    useUpdateOrder(updatedOrder, id);
   };
 
   return (
