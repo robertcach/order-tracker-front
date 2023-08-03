@@ -26,10 +26,16 @@ export default function OrderDetails({ order }: OrderDetailsProps) {
         </div>
       </div>
       <div className="p-6 bg-white rounded-md ">
-        <p>Customer info</p>
-        <p>{customer.name}</p>
-        <p>{customer.email}</p>
-        <p>{customer.address}</p>
+        <p className="text-xl font-bold">Customer info</p>
+        <p>
+          <span className="font-semibold">Name</span>: {customer.name}
+        </p>
+        <p>
+          <span className="font-semibold">Email</span>: {customer.email}
+        </p>
+        <p>
+          <span className="font-semibold">Address</span>: {customer.address}
+        </p>
       </div>
     </>
   );

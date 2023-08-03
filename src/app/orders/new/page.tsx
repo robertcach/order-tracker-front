@@ -38,7 +38,9 @@ export default function NewOrder() {
         className="flex flex-col items-start gap-5 p-5 bg-white"
       >
         <div>
-          <label htmlFor="customerID">Customer</label>
+          <label htmlFor="customerID" className="font-semibold">
+            Customer:
+          </label>
           <select
             id="customerID"
             {...register("customerID")}
@@ -55,7 +57,9 @@ export default function NewOrder() {
         </div>
 
         <div className="flex items-center gap-2">
-          <label htmlFor="productsID">Products</label>
+          <label htmlFor="productsID" className="font-semibold">
+            Products:
+          </label>
           <div className="w-72">
             <Listbox
               value={selectedProducts}

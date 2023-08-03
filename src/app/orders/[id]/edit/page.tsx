@@ -55,14 +55,16 @@ export default function EditOrder({ params }: { params: { id: string } }) {
 
   return (
     <div className="flex flex-col h-screen gap-5 p-24 bg-slate-100">
-      <p className="text-2xl font-bold uppercase">New order</p>
+      <p className="text-2xl font-bold uppercase">Edit order</p>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-start gap-5 p-5 bg-white"
       >
         <div>
-          <label htmlFor="customerID">Customer</label>
+          <label htmlFor="customerID" className="font-semibold">
+            Customer:
+          </label>
           <select
             id="customerID"
             {...register("customerID")}
@@ -79,7 +81,9 @@ export default function EditOrder({ params }: { params: { id: string } }) {
         </div>
 
         <div className="flex items-center gap-2">
-          <label htmlFor="productsID">Products</label>
+          <label htmlFor="productsID" className="font-semibold">
+            Products:
+          </label>
           <div className="w-72">
             <Listbox
               value={selectedProducts}
