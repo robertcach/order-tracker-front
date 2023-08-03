@@ -55,7 +55,8 @@ export default function EditOrder({ params }: { params: { id: string } }) {
 
   return (
     <div className="flex flex-col h-screen gap-5 p-24 bg-slate-100">
-      <p>Edit order</p>
+      <p className="text-2xl font-bold uppercase">New order</p>
+
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-start gap-5 p-5 bg-white"
@@ -146,7 +147,9 @@ export default function EditOrder({ params }: { params: { id: string } }) {
           </div>
         </div>
 
-        <button>Create Product</button>
+        <button className="p-2 text-white rounded-md bg-primary">
+          Create Product
+        </button>
       </form>
     </div>
   );
